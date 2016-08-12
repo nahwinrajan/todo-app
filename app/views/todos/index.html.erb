@@ -1,0 +1,30 @@
+<div class="text-center">
+  <h3><%= link_to 'New', new_todo_path %></h3>
+</div>
+<div class="container">
+  <ul class="list-group">
+    <% @todos.each do |todo| %>
+      <li class="list-group-item">
+        <div class="row">
+          <%= link_to todo_path(todo) do%>
+            <h2 class="col-md-12"><%= todo.title %></h2>
+          <% end %>
+        </div>
+        <div class="row">
+          <small class="col-md-12"><%= todo.description %></small>
+        </div>
+        <div class="row">
+          <span class="col-md-3 col-md-offset-9">
+            <a href="<%= edit_todo_path(todo) %>" class="btn btn-info">
+              <span class="glyphicon glyphicon-pencil"></span>
+            </a>
+            <%= link_to todo_path(todo), method: :delete,
+              data: { confirm: "Are you sure ?"}, class: "btn btn-danger" do %>
+                <span class="glyphicon glyphicon-trash"></span>
+            <% end %>
+          </span>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>

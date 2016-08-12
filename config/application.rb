@@ -22,5 +22,12 @@ module TodoApp
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    config.log_tags = [
+      :host,
+      :remote_ip,
+      lambda { |request| "#{request.uuid}"[0..15] },
+      lambda { |request| "#{request.cookie_jar["_on_ruby_session"]}"[0..15] },
+    ]
   end
 end

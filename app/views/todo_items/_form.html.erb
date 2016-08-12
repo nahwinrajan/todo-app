@@ -1,0 +1,15 @@
+<%= form_for([@todo, @todo.todo_items.build],
+  html: { class: "form-inline" }) do |f| %>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="input-group"
+        style="width: 100%; margin: 0 auto; padding-left: 20%;">
+        <%= f.text_field :title, placeholder: "must be between 2 and 140 characters",
+          class: "form-control"%>
+           <span class="input-group-btn">
+             <%= f.submit class:"btn btn-success" %>
+           </span>
+      </div>
+    </div>
+  </div>
+<% end %>

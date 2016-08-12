@@ -1,0 +1,13 @@
+<navigation class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-header">
+      <%= link_to 'Todo-App', root_path, class: 'navbar-brand' %>
+    </div>
+        <ul class="nav navbar-nav pull-right">
+          <li>
+            <%= link_to new_todo_path, class: "btn btn-success" do %>
+              <span class="glyphicon glyphicon-plus"></span>
+            <% end %>
+          </li>
+        </ul>
+    </div>
+</navigation>
